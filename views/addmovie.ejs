@@ -11,17 +11,32 @@
     <title>Add movie</title>
 </head>
 <body>
+        <p class="title">Select desired movie.s</p>
+
         <form id="movieAddSelector" class="moviesWrapper" action="/addMovie">
         <% for (let i = 0; i < foundMovies.length; i++) { %>
-            <div class="movie">
-                    <img class="movieTumbnail" src="<%=foundMovies[i].cover_path%>" alt="<%=foundMovies[i].title%>">
-                        <div class="movieDesc">
-                            <h3 class="movieTitle"><%=foundMovies[i].title%></h3>
-                            <p class="synopsis"><%=foundMovies[i].synopsis%></p>
-                            <p class="desc">Release : <%=foundMovies[i].release%></p>
-                            <input type="checkbox" class="checkbox" name="toAdd" value=<%=foundMovies[i].imdbID%>>
-                        </div>
-            </div>
+            <%if(foundMovies[i].alreadyInDB == false){%>
+                <div class="movie">
+                        <img class="movieTumbnail" src="<%=foundMovies[i].cover_path%>" alt="<%=foundMovies[i].title%>">
+                            <div class="movieDesc">
+                                <h3 class="movieTitle"><%=foundMovies[i].title%></h3>                                
+                                <p class="desc">Release : <%=foundMovies[i].release%></p>
+                                    <input type="checkbox" class="checkbox" name="toAdd" value=<%=foundMovies[i].imdbID%>>
+                            </div>
+                </div>
+
+                <% }else{%>
+                    <div>
+                        <p class="inDbMsg">Already added</p>
+                    <div class="movie inDb">
+                        <img class="movieTumbnail" src="<%=foundMovies[i].cover_path%>" alt="<%=foundMovies[i].title%>">
+                            <div class="movieDesc">
+                                <h3 class="movieTitle"><%=foundMovies[i].title%></h3> 
+                                <p class="desc">Release : <%=foundMovies[i].release%></p>
+                            </div>
+                    </div>
+                    </div>
+                    <% } %>
         <% } %>
         </form>
         <footer>

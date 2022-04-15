@@ -16,7 +16,7 @@ body{
     width: 100vw;
     background-color: var(--color1);
 }
-.mainTitle{
+.title{
     font-size: 5em;
     text-align: center;
     color: whitesmoke;
@@ -30,7 +30,7 @@ body{
     gap: 3em;
     padding: 0 2em;
     width: 100%;
-    max-width: 1500px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 .movie{
@@ -46,7 +46,7 @@ body{
 .movieTitle{
     color: var(--color5);
     font-weight: 700;
-    font-size: 1.7em;
+    font-size: 1.4em;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -62,9 +62,16 @@ body{
 }
 .desc{
     margin-bottom: 5px;
-    font-size: 1em;
+    font-size: 1.1em;
 }
-
+.inDb{
+    opacity: 0.3;
+}
+.inDbMsg{
+    color: whitesmoke;
+    position: absolute;
+    
+}
 footer{
     position: sticky;
     bottom: 10px;
@@ -80,4 +87,22 @@ footer{
     padding: 0 10px;
     height: 30px;
     font-weight: 700;
+}
+@media (max-width: 800px) {
+
+    .Title{
+        font-size: 4em;
+    }
+    
+    .moviesWrapper{
+        grid-template-columns: 1fr;
+        
+    }
+    .movie{
+        flex-direction: column;
+        align-items: center;
+    }
+    .movieTumbnail{
+        margin-bottom: 15px;
+    }
 }
