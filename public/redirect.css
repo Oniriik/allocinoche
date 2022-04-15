@@ -14,7 +14,7 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    background: linear-gradient(15deg, var(--color1), var(--color4));
+    background: linear-gradient(15deg, #0c123e, #1a1a2e);
   }
   .loading-container {
     position: relative;

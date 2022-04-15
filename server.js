@@ -44,13 +44,6 @@ app.get('/search', (req, res) => {
             for (let i = 0; i < movieQuery.length; i++) {
                 const currentMovie = {
                     'title': movieQuery[i].attributes.title,
-                    'plot': movieQuery[i].attributes.plot,
-                    'release': movieQuery[i].attributes.release,
-                    'rating': movieQuery[i].attributes.rating,
-                    'cover_path': movieQuery[i].attributes.cover_path,
-                    'director': movieQuery[i].attributes.director,
-                    'writter': movieQuery[i].attributes.writter,
-                    'actors': movieQuery[i].attributes.actors,
                     'imdbID' : movieQuery[i].attributes.imdbID
                 }
                 moviesList.push(currentMovie)
@@ -74,7 +67,7 @@ app.get('/search', (req, res) => {
                       const currentMovie = {
                           'title': searchQuery[i].Title,
                           'release': searchQuery[i].Year,
-                          'cover_path': searchQuery[i].Poster,
+                          'cover_path': searchQuery[i].Poster == "N/A" ? "/static/assets/blankPoster.png" : searchQuery[i].Poster,
                           'imdbID': searchQuery[i].imdbID,
                           'alreadyInDB' : checkIfInDB(searchQuery[i].imdbID ,moviesList)
                       }
@@ -99,7 +92,7 @@ async function addToBDD(toSend){
                 "writter": toSend.Writer,
                 "actors": toSend.Actors,
                 "rating": rating,
-                "cover_path": toSend.Poster,
+                "cover_path": toSend.Poster == "N/A" ? "/static/assets/blankPoster.png" : toSend.Poster,
                 "imdbID": toSend.imdbID
             }
         }).then(resp=>{
