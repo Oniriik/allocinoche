@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,800&display=swap" rel="stylesheet">
+    <title>Allo'Cinoche</title>
+</head>
+    <body>
+        <div class="addMovieMenuContainer">
+            <div class="addMovieMenu">
+                <form action="/search">
+                    <h1>MOVIE TO ADD</h1>
+                    <input type="text" name='movie' id='searchInput'>
+                    <input type="submit" value="Search" id="searchMovieBtn">
+                    <a onClick="closeMovieSeach()">
+                        <img class= "closeMovieMenuBtn" src="/static/assets/addbtn.svg" alt="closebtn"/>
+                    </a>
+                </form>
+            </div>
+            
+        </div>
+        <h1 class="mainTitle">Allo'Cinoche</h1>
+        
+        <div class="moviesWrapper">
+            <% for (let i = 0; i < movies.length; i++) { %>
+                <div class="movie">
+                        <img class="movieTumbnail" src="<%=movies[i].cover_path%>" alt="<%=movies[i].title%>">
+                            <div class="movieDesc">
+                                <h3 class="movieTitle"><%=movies[i].title%></h3>
+                                <p class="synopsis"><%=movies[i].plot%></p>
+                                <p class="desc">Release : <%=movies[i].release%></p>
+                                <p class="desc">Director : <%=movies[i].director%></p>
+                                <p class="desc">Writer : <%=movies[i].writter%></p>
+                                <p class="desc">Actors : <%=movies[i].actors%></p>
+                                <div class="ratingStarsContainer desc">
+                                    <p>Charts rating : </p>
+                                    <% for (let j = 0; j < movies[i].rating; j++) { %>
+                                            <img class= "ratingStars" src="/static/assets/star.png" alt="star">
+                                    <% } %>
+                                </div>
+
+                            </div>
+                    
+                </div>
+            <% } %>
+        </div>
+
+
+
+
+
+        <footer>
+            <a  onClick="displayMovieSeach()">
+                <img class= "addMovieBtn" src="/static/assets/addbtn.svg" alt="addbtn"/>
+            </a>
+        </footer>
+    </body>
+</html>
+<script>
+    let addMovieMenuContainer = document.getElementsByClassName('addMovieMenuContainer')[0]
+    function displayMovieSeach(){
+        addMovieMenuContainer.classList.add("visible");
+    }
+
+    function closeMovieSeach(){
+        addMovieMenuContainer.classList.remove("visible");
+    }
+</script>

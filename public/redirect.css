@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+:root{
+    --color1: #1A1A2E;
+    --color2: #16213E;
+    --color3: #0F3460;
+    --color4: #246cc4;
+    --color5: #E94560;
+  }
+body{
+    width: 100vw;
+    background-color: var(--color1);
+}
+.contentWrapper{
+    justify-content: center;    
+}

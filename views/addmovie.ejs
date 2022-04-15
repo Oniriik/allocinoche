@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="addmovie.css">
+    <title>Add movie</title>
+</head>
+<body>
+        <form class="moviesWrapper" action="/addMovie">
+        <% for (let i = 0; i < foundMovies.length; i++) { %>
+            <div class="movie">
+                    <img class="movieTumbnail" src="<%=foundMovies[i].cover_path%>" alt="<%=foundMovies[i].title%>">
+                        <div class="movieDesc">
+                            <h3 class="movieTitle"><%=foundMovies[i].title%></h3>
+                            <p class="synopsis"><%=foundMovies[i].synopsis%></p>
+                            <p class="desc">Release : <%=foundMovies[i].release%></p>
+                            <input type="checkbox" class="checkbox" name="toAdd" value=<%=foundMovies[i].imdbID%>>
+                        </div>
+            </div>
+        <% } %>
+            <input type="submit" value="movie">
+        </form>
+</body>
+</html>

@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+:root{
+    --color1: #1A1A2E;
+    --color2: #16213E;
+    --color3: #0F3460;
+    --color4: #246cc4;
+    --color5: #E94560;
+  }
+body{
+    width: 100vw;
+    background-color: var(--color1);
+}
+.mainTitle{
+    font-size: 5em;
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    margin: 15px;
+}
+.moviesWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    padding: 0 2em;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.movie{
+    display: flex;
+    padding: 7px 7px;
+    border-radius: 1em;
+    flex-direction: row;
+    align-items: flex-start;
+    font-weight: 800;
+    color: whitesmoke;
+    box-shadow: 0px 0px 28px -1px #151525;
+}
+.movieTitle{
+    color: var(--color5);
+    font-weight: 700;
+    font-size: 1.7em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.movieTumbnail{
+    width: 200px;
+    height: auto;
+    max-height: 250px;
+    border-radius: 1em;
+}
+.movieDesc{
+    margin-left: 10px;
+}
+.synopsis{
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+.desc{
+    margin-bottom: 5px;
+    font-size: 0.7em;
+}
+.ratingStarsContainer{
+    display: flex;
+    flex-direction: row; 
+}
+.ratingStarsContainer p{
+    margin-right: 5px;
+}
+.ratingStars{
+    width: 1.5em;
+}
+footer{
+    position: sticky; 
+    bottom: 1em;
+    float: right;
+    right: 1em;
+}
+
+.addMovieMenuContainer{
+    z-index: 10;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(7px);
+    background-color: rgba(43, 43, 43, 0.048);
+    visibility: hidden;
+}
+.addMovieMenu{
+    display: flex;
+    justify-content: center;
+    
+}
+.visible{
+    visibility: visible;
+}
+.addMovieMenu form{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addMovieMenu form h1{
+    font-size: 5em;
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    margin: 15px;
+}
+input{padding: 0 10px}
+
+#searchInput{
+    width: 400px;
+    font-size: 2em;
+    border-radius: 1em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #f5f5f5;
+    background-color: rgba(114, 114, 114, 0.178);
+    margin-top: 60px;
+
+}
+#searchMovieBtn{
+    margin: 10px;
+    width: 100px;
+    padding: 0.5em 0em;
+    border-radius: 30px;
+}
+.closeMovieMenuBtn{
+    margin-top: 200px;
+    width: 40px;
+    transform: rotate(45deg);
+    filter: invert(100%) sepia(1%) saturate(164%) hue-rotate(48deg) brightness(115%) contrast(92%);
+}
+.addMovieBtn{
+    width: 3em;
+    right: 2em;
+    bottom: 1em;
+    filter: invert(56%) sepia(84%) saturate(4708%) hue-rotate(323deg) brightness(92%) contrast(98%);
+}
+
+
+@media (max-width: 800px) {
+
+    .mainTitle{
+        font-size: 4em;
+    }
+    
+    .moviesWrapper{
+        grid-template-columns: 1fr;
+        
+    }
+    .movie{
+        flex-direction: column;
+        align-items: center;
+    }
+    .movieTumbnail{
+        margin-bottom: 15px;
+    
+    
+
+
+
+
+
+
+
+
