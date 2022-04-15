@@ -1,32 +1,13 @@
+// Express setup
 const express = require('express');
 const axios = require('axios');
 const res = require('express/lib/response');
 const app = express();
-
-
-// set EJS as templating engine
 app.set('view engine', 'ejs');
-
 app.listen(process.env.PORT ||8080);
-
-
-// Take actors array and format [name lastname, etc]
-function actorsAssemble(actors){
-    const actorsList = []
-    for (let j = 0; j < actors.length; j++) {
-        actorsList.push(actors[j].attributes.name +" "+actors[j].attributes.lastname)
-    }
-    return actorsList
-}
-
-
-// give access to 'public' folder from '/static' url's pathname
 app.use('/static', express.static('public'));
 
-
-app.get('/dashboard', (req, res) => {
-    res.render('dashboard')
-});
+let movies = []
 
 app.get('/redirect', (req, res) => {
     messages = [
@@ -70,7 +51,17 @@ async function addToBDD(toSend){
     }
     
     
-
+function checkIfInDB(toCheck){
+    console.log("Check : " + toCheck + " With  \n")
+    for(const element of movies){
+        console.log("elem" + element)
+        if(element.imdbID == toCheck){
+            console.log(element + " exist")
+            return true
+        }
+    }
+    return false
+}
 
 app.get('/addmovie',async(req, res) => {
     const toAdd = req.query.toAdd;
@@ -134,8 +125,10 @@ app.get('/search', (req, res) => {
                   'title': searchQuery[i].Title,
                   'release': searchQuery[i].Year,
                   'cover_path': searchQuery[i].Poster,
-                  'imdbID': searchQuery[i].imdbID
+                  'imdbID': searchQuery[i].imdbID,
+                  'alreadyInDB' : checkIfInDB(searchQuery[i].imdbID)
               }
+              console.log(currentMovie)
               foundMovies.push(currentMovie)
           }
           res.render('addmovie',{foundMovies});
@@ -146,9 +139,8 @@ app.get('/search', (req, res) => {
 });
 app.get('/', async (req, res) => {
     // Fetch movies from API then render page
-    console.log("/")
-    let movies = []
     await axios.get('https://allocinoche.herokuapp.com/api/movies?sort=id&oder=asc').then(resp => {
+        let fetchedMovies = []
         movieQuery = resp['data'].data
         // Format movieQuery for easier usage
         for (let i = 0; i < movieQuery.length; i++) {
@@ -160,10 +152,12 @@ app.get('/', async (req, res) => {
                 'cover_path': movieQuery[i].attributes.cover_path,
                 'director': movieQuery[i].attributes.director,
                 'writter': movieQuery[i].attributes.writter,
-                'actors': movieQuery[i].attributes.actors
+                'actors': movieQuery[i].attributes.actors,
+                'imdbID' : movieQuery[i].attributes.imdbID
             }
-            movies.push(currentMovie)
+            fetchedMovies.push(currentMovie)
         }
+        movies = fetchedMovies
     });
     res.render('mainpage',{movies})
 });

@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="addmovie.css">
+    <link rel="stylesheet" href="static/addmovie.css">
     <title>Add movie</title>
 </head>
 <body>
-        <form class="moviesWrapper" action="/addMovie">
+        <form id="movieAddSelector" class="moviesWrapper" action="/addMovie">
         <% for (let i = 0; i < foundMovies.length; i++) { %>
             <div class="movie">
                     <img class="movieTumbnail" src="<%=foundMovies[i].cover_path%>" alt="<%=foundMovies[i].title%>">
@@ -24,7 +23,9 @@
                         </div>
             </div>
         <% } %>
-            <input type="submit" value="movie">
         </form>
+        <footer>
+            <input form="movieAddSelector" id="addMovieBtn" type="submit" value="ADD SELECTED">
+        </footer>
 </body>
 </html>

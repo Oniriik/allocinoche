@@ -64,3 +64,20 @@ body{
     margin-bottom: 5px;
     font-size: 1em;
 }
+
+footer{
+    position: sticky;
+    bottom: 10px;
+}
+#addMovieBtn{
+    background-color: var(--color5);
+    color: whitesmoke;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px #bb364c;
+    border-style: solid;
+    justify-content: center;
+    padding: 0 10px;
+    height: 30px;
+    font-weight: 700;
+}
