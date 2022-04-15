@@ -15,29 +15,20 @@
 
         <form id="movieAddSelector" class="moviesWrapper" action="/addMovie">
         <% for (let i = 0; i < foundMovies.length; i++) { %>
-            <%if(foundMovies[i].alreadyInDB == false){%>
-                <div class="movie">
+                <div class="movie <%= foundMovies[i].alreadyInDB ? 'inDb' : '' %>">
                         <img class="movieTumbnail" src="<%=foundMovies[i].cover_path%>" alt="<%=foundMovies[i].title%>">
                             <div class="movieDesc">
                                 <h3 class="movieTitle"><%=foundMovies[i].title%></h3>                                
                                 <p class="desc">Release : <%=foundMovies[i].release%></p>
-                                    <input type="checkbox" class="checkbox" name="toAdd" value=<%=foundMovies[i].imdbID%>>
+                                <% if (!foundMovies[i].alreadyInDB) { %>
+                                    <input type="checkbox" class="checkbox" name="toAdd" value=<%=foundMovies[i].imdbID%>> 
+                                <% } else { %> 
+                                    <p>Movie already added</p>
+                                <% } %>
+                
                             </div>
                 </div>
-
-                <% }else{%>
-                    <div>
-                        <p class="inDbMsg">Already added</p>
-                    <div class="movie inDb">
-                        <img class="movieTumbnail" src="<%=foundMovies[i].cover_path%>" alt="<%=foundMovies[i].title%>">
-                            <div class="movieDesc">
-                                <h3 class="movieTitle"><%=foundMovies[i].title%></h3> 
-                                <p class="desc">Release : <%=foundMovies[i].release%></p>
-                            </div>
-                    </div>
-                    </div>
-                    <% } %>
-        <% } %>
+                <% } %>
         </form>
         <footer>
             <input form="movieAddSelector" id="addMovieBtn" type="submit" value="ADD SELECTED">
