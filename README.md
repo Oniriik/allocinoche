@@ -13,7 +13,7 @@
  It use [movie-database-alternative](https://rapidapi.com/rapidapi/api/movie-database-alternative/) to add new content on the website
   
 # TECHNOLOGIES
-  ExpressJS,HTML,CSS,AXIOS,strapi API
+  ExpressJS,HTML,CSS,EJS,AXIOS,strapi API
 # TRY IT
  https://allocinoche-app.herokuapp.com/ // It may take long time to see page first time because heroku dynos need to wake up.
  
