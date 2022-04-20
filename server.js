@@ -55,7 +55,7 @@ app.get('/search', (req, res) => {
                 params: {s: movieToSearch, r: 'json', page: '1'},
                 headers: {
                   'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com',
-                  'X-RapidAPI-Key': '2fba6ce8f4msh955533e104418b4p14244bjsn30c181fb15da'
+                  'X-RapidAPI-Key': RAPID_API_TOKEN
                 }
               };
               
