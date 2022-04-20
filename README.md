@@ -2,6 +2,7 @@
   Website that reference movies/series and show :
    - Title
    - Poster
+   - Plot
    - Release date
    - Director
    - Writer
