@@ -11,9 +11,10 @@
     
  Users can add movies/series to the website via + button.
  It use [movie-database-alternative](https://rapidapi.com/rapidapi/api/movie-database-alternative/) to add new content on the website
-  
-# TECHNOLOGIES
-  ExpressJS,HTML,CSS,EJS,AXIOS,strapi API
+# Disclaimer
+   This code is not 'Public' ready, I will rewrite it ASAP !
+# What did i use ?
+ExpressJs, Ejs, Strapi REST API, Axios
 # TRY IT
  https://allocinoche-app.herokuapp.com/ // It may take long time to see page first time because heroku dynos need to wake up.
  
