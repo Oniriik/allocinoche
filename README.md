@@ -11,6 +11,8 @@
     
  Users can add movies/series to the website via + button.
  It use [movie-database-alternative](https://rapidapi.com/rapidapi/api/movie-database-alternative/) to add new content on the website
+ 
+ This was a school project, the rules was to display movies from our PostgresSQL database but... I went like this :)
 # Disclaimer
    This code is not 'Public' ready, I will rewrite it ASAP !
 # What did i use ?
